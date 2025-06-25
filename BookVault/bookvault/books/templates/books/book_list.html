@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<h2>All Books</h2>
+
+<form method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search by title or author" value="{{ query|default:'' }}">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+    </div>
+</form>
+
+<div class="row">
+    {% for book in books %}
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            {% if book.cover_image %}
+                <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}">
+            {% else %}
+                <img src="{% static 'images/default_cover.jpeg' %}" class="card-img-top" alt="No cover available">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">By {{ book.author }}</p>
+                <p class="card-text">R{{ book.price }}</p>
+                <a href="{% url 'book_detail' book.pk %}" class="btn btn-primary">Details</a>
+                <form method="post" action="{% url 'add_to_cart' book.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No books found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

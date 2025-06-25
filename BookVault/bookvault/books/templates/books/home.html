@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Upcoming Books</h2>
+<div class="row">
+    {% for book in upcoming_books %}
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">By {{ book.author }}</p>
+                <p class="card-text"><small>Release Date: {{ book.release_date }}</small></p>
+                <a href="{% url 'upcoming_book_detail' book.pk %}" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No upcoming books.</p>
+    {% endfor %}
+</div>
+
+<hr>
+
+<h2>Popular Books</h2>
+<div class="row">
+    {% for book in popular_books %}
+    <div class="col-md-3 mb-3">
+        <div class="card">
+            {% if book.cover_image %}
+            <img src="{{ book.cover_image.url }}" class="card-img-top" alt="{{ book.title }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ book.title }}</h5>
+                <p class="card-text">By {{ book.author }}</p>
+                <a href="{% url 'book_detail' book.pk %}" class="btn btn-primary">Details</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No popular books.</p>
+    {% endfor %}
+</div>
+
+<hr>
+
+<h2>Recent Reviews</h2>
+<ul class="list-group">
+    {% for review in recent_reviews %}
+    <li class="list-group-item">
+        <strong>{{ review.user.username }}</strong> on 
+        <a href="{% url 'book_detail' review.book.pk %}">{{ review.book.title }}</a>:
+        {{ review.content|truncatewords:20 }}
+    </li>
+    {% empty %}
+    <p>No reviews yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %}
