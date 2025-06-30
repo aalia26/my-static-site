@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aalia Malek Online CV</title>
+  <link rel="stylesheet" href="index_style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Aalia Malek</h1>
+    <img src="images/my-photo.jpeg" alt="Photo of Aalia Malek" width="250">
+    <p>Email: aaliamalek.11@gmail.com</p>
+    <p>Phone: +27 61 274 7823</p>
+    <p>
+      LinkedIn: <a href="https://www.linkedin.com/in/aaliamalek" target="_blank">linkedin.com/in/aaliamalek</a>
+    </p>
+  </header>
+
+  <section id="search">
+    <h2>Search My CV</h2>
+    <form action="/search" method="get">
+      <label for="search-box">Search:</label>
+      <input type="text" id="search-box" name="query" placeholder="e.g. Python, HTML" required>
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <section id="contact-form">
+    <h2>Contact Me</h2>
+    <form action="/submit-feedback" method="post">
+      <label for="name">Your Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Your Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Your Message:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="bio">
+    <h2>About Me</h2>
+    <p>I’m a motivated and friendly high school graduate, with a growing passion for technology. </p>
+    <p>I’m currently building a foundation in the IT industry through a software engineering bootcamp with HyperionDev.</p>
+    <p>My background includes part-time work as a Front-end Supervisor, where I developed strong leadership and team coordination skills.</p>
+    <p>My short-term goal is to secure a well-paying role where I can continue to learn, contribute, and build experience.</p>
+    <p>Long-term, I aim to become a knowledgeable, reliable team member who adds real value to the organization I’m part of.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills & Competencies</h2>
+    <ul>
+      <li>HTML</li>
+      <li>Microsoft Office</li>
+      <li>Python</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p><strong>National Senior Certificate</strong><br> Thistle Grove Combined School</p>
+  </section>
+
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <p><strong>Front-end Supervisor -part-time </strong><br>Oct 2022 – Dec 2024</p>
+    <ul>
+      <li>Supervised and supported cashiers and front-end staff</li>
+      <li>Stepped in to assist with any department as needed</li>
+    </ul>
+  </section>
+
+</body>
+</html>
+
+<!-- Example Response Messages -->
+<section>
+    <h2>Example Output and Response Messages</h2>
+
+    <h3>Search Form Submission</h3>
+    <pre>
+
+Request:
+---------
+GET /search?q=Python HTTP/1.1
+Host: www.example.com
+User-Agent: Chrome/123.0
+Accept: text/html
+
+Response:
+---------
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+You searched for: Python
+Search results would appear here.
+    </pre>
+
+    <h3>Contact Form Submission</h3>
+    <pre>
+
+Request:
+---------
+POST /contact HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 74
+
+fullname=Josh+Chen&email=joshchen%40example.com&message=Hello+there!
+
+Response:
+---------
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+Thank you, Josh Chen! Your message has been received. We'll contact you at joshchen@example.com.
+    </pre>
+</section>

@@ -1,0 +1,107 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Aalia Malek Online CV</title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: #f7f9fc;
+      color: #000000;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      background-color: #e0f7fa;
+      padding: 30px 10px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    header img {
+      border-radius: 50%;
+      margin: 15px 0;
+    }
+
+    header p {
+      margin: 5px 0;
+    }
+
+    header a {
+      color: #0077b6;
+      text-decoration: none;
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      border-bottom: 2px solid #00acc1;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      color: #006064;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #00acc1;
+      color: white;
+      cursor: pointer;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #007c91;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
